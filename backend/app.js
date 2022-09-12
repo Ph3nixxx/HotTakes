@@ -2,10 +2,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require('mongoose');
 const path = require('path');
-const serverConfig = require('./config');
 
+const serverConfig = require('./config');
 const saucesRoutes = require('./routes/sauces');
 const userRoutes = require('./routes/user');
+
+const app = express();
+
+/* configuration de la base de données MongoDB Atlas */
 
 mongoose.connect('mongodb+srv://' + serverConfig.DB_LOGIN + ':' + serverConfig.DB_PASSWORD + '@' + serverConfig.DB_URL + '/?retryWrites=true&w=majority',
   { useNewUrlParser: true,
@@ -13,7 +17,7 @@ mongoose.connect('mongodb+srv://' + serverConfig.DB_LOGIN + ':' + serverConfig.D
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch((error) => console.log('Connexion à MongoDB échouée !'+ error));
 
-const app = express();
+/* Configuration des headers pour le navigateur */
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');

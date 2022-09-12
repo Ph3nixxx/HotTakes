@@ -7,7 +7,7 @@ const ModelsSauce = mongoose.Schema({
     description: { type: String, required: true },
     mainPepper: { type: String, required: true },
     imageUrl: { type: String, required: true },
-    heat: { type: Number, required: false },
+    heat: { type: Number, required: true },
     likes: { type: Number, required: true },
     dislikes: { type: Number, required: true },
     usersLiked: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" , required: true }],

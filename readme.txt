@@ -1,1 +1,0 @@
-Dans le fichier app.js, les identifiants MangoDB Atlas ont été cachés dans un fichier config.js, ajouté dans les exceptions de .gitignore.
